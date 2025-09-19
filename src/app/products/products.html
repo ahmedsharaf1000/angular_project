@@ -1,0 +1,55 @@
+<div class="container py-5">
+  <h2 class="text-center mb-5 fw-bold display-4">Our Premium Collection</h2>
+
+  <!-- الفلاتر المتقدمة -->
+  <div class="filters mb-4 d-flex flex-wrap gap-3 justify-content-center">
+  <select class="form-select w-auto" [(ngModel)]="selectedCategory">
+      <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+    </select>
+  <select class="form-select w-auto" [(ngModel)]="selectedGender">
+      <option *ngFor="let g of genders" [value]="g">{{g}}</option>
+    </select>
+  <select class="form-select w-auto" [(ngModel)]="selectedStyle">
+      <option *ngFor="let s of styles" [value]="s">{{s}}</option>
+    </select>
+  <select class="form-select w-auto" [(ngModel)]="selectedType">
+      <option *ngFor="let t of types" [value]="t">{{t}}</option>
+    </select>
+  <select class="form-select w-auto" [(ngModel)]="selectedPrice">
+      <option *ngFor="let p of prices" [value]="p">{{p}}</option>
+    </select>
+  </div>
+
+  <!-- المنتجات -->
+  <div class="row g-5">
+    <div class="col-lg-4 col-md-6" *ngFor="let watch of filteredWatches">
+      <div class="product-card card h-100" (click)="showDetails(watch)" style="cursor:pointer;">
+        <div class="image-container">
+          <img [src]="watch.image" [alt]="watch.name" class="card-img-top">
+          <div class="product-overlay">
+            <span class="overlay-text">{{ watch.name }}</span>
+          </div>
+        </div>
+        <div class="card-body text-center position-relative">
+          <span
+            [ngClass]="{
+              'badge bg-danger': watch.quantity === 0,
+              'badge bg-success': watch.quantity > 0
+            }"
+            style="position: absolute; top: 0.5rem; right: 0.5rem; font-size: 1rem; z-index: 2;"
+          >
+            {{ watch.quantity === 0 ? 'Out Stock' : 'In Stock' }}
+          </span>
+          <h5 class="card-title mt-4">{{ watch.name }}</h5>
+          <p class="card-text text-muted">$ {{ watch.price }}</p>
+          <button class="btn-buy" (click)="$event.stopPropagation(); buyNow(watch)">شراء الآن</button>
+          <button class="btn btn-outline-warning ms-2" (click)="$event.stopPropagation(); toggleFavorite(watch)">
+            <span *ngIf="isFavorite(watch)">★</span>
+            <span *ngIf="!isFavorite(watch)">☆</span>
+            إضافة للمفضلة
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

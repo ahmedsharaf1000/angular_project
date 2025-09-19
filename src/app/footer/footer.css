@@ -1,0 +1,87 @@
+/* Floating Contact Icons */
+.contact-icons {
+  position: fixed;
+  left: 2vw;
+  bottom: 2vw;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.contact-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  color: #fff;
+  font-size: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid #fff;
+}
+.contact-icon.whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #fff;
+  border: 2px solid #25d366;
+}
+.contact-icon.call {
+  background: linear-gradient(135deg, #1976d2 0%, #64b5f6 100%);
+  color: #fff;
+  border: 2px solid #1976d2;
+}
+.contact-icon:hover {
+  transform: scale(1.12) translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+}
+
+/* تأثيرات Hover للروابط */
+.link-hover {
+  transition: color 0.3s ease;
+}
+
+.link-hover:hover {
+  color: white !important;
+}
+
+/* تأثيرات Hover للروابط الاجتماعية */
+.social-link {
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: white !important;
+  transform: translateY(-3px);
+}
+
+/* تحسينات للعرض على الجوال */
+@media (max-width: 768px) {
+  .container > .row > div {
+    margin-bottom: 2rem;
+  }
+  
+  .d-flex.flex-wrap {
+    justify-content: center;
+  }
+  
+  .contact-icons {
+    left: 1.5vw;
+    bottom: 1.5vw;
+  }
+  
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+}

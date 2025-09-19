@@ -1,0 +1,9 @@
+<div class="text-center mb-4">
+  <button 
+    *ngFor="let cat of categories" 
+    class="btn btn-outline-dark mx-2 px-4 rounded-pill fw-semibold"
+    [class.active]="selectedCategory === cat"
+    (click)="selectCategory(cat)">
+    {{ cat }}
+  </button>
+</div>

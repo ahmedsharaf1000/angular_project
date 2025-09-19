@@ -1,0 +1,42 @@
+.login-container {
+  max-width: 430px;
+  margin: 50px auto;
+  padding: 2.5rem 2rem;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  border: 1px solid #eee;
+}
+.login-container h2 {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 2rem;
+}
+.form-label {
+  font-weight: 500;
+  color: #444;
+}
+.form-control, .form-select {
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #ddd;
+  margin-bottom: 0.5rem;
+}
+.btn-gradient {
+  background: linear-gradient(90deg, #ffb347 0%, #ffcc80 100%);
+  color: #222;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(255,179,71,0.08);
+  transition: background 0.2s;
+}
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #ffcc80 0%, #ffb347 100%);
+  color: #111;
+}
+.alert {
+  border-radius: 0.75rem;
+}

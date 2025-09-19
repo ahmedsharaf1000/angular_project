@@ -1,0 +1,19 @@
+<div class="container py-5">
+	<h2 class="text-center mb-5 fw-bold display-4">المفضلة</h2>
+	<div class="row g-5">
+		<div class="col-lg-4 col-md-6" *ngFor="let product of favoriteProducts">
+			<div class="card h-100">
+				<img [src]="product.image" [alt]="product.name" class="card-img-top">
+				<div class="card-body text-center">
+					<h5 class="card-title">{{ product.name }}</h5>
+					<p class="card-text text-muted">$ {{ product.price }}</p>
+					<button class="btn btn-success" (click)="buyNow(product)">شراء الآن</button>
+					<button class="btn btn-danger ms-2" (click)="removeFavorite(product.id)">حذف من المفضلة</button>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="favoriteProducts.length === 0" class="text-center mt-5">
+			<h4>لا توجد منتجات في المفضلة</h4>
+		</div>
+	</div>
+</div>

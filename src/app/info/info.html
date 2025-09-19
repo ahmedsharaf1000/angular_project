@@ -1,0 +1,9 @@
+<div class="info-container" *ngIf="user">
+  <h2 class="mb-4">معلومات المستخدم</h2>
+  <p><strong>الاسم الكامل:</strong> {{ user.name }}</p>
+  <p><strong>رقم الهاتف:</strong> {{ user.phone }}</p>
+  <p><strong>البريد الإلكتروني:</strong> {{ user.email }}</p>
+  <p><strong>الدولة:</strong> {{ user.country }}</p>
+  <button class="btn btn-danger mt-3" (click)="logout()">تسجيل الخروج</button>
+</div>
+<div *ngIf="!user" class="alert alert-warning mt-4">يجب تسجيل الدخول أولاً.</div>

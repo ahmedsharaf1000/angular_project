@@ -1,0 +1,220 @@
+/* Chatbot Button */
+.chatbot-button {
+  position: fixed;
+  right: 2vw;
+  bottom: 2vw;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.chatbot-button:hover {
+  transform: scale(1.12) translateY(-4px);
+  box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4);
+}
+
+.chatbot-button.active {
+  background: linear-gradient(135deg, #ee5a24 0%, #ff6b6b 100%);
+  transform: scale(0.95);
+}
+
+.chatbot-tooltip {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.chatbot-tooltip::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: rgba(0, 0, 0, 0.8);
+}
+
+.chatbot-button:hover .chatbot-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(255, 107, 107, 0.6);
+  }
+  100% {
+    box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
+  }
+}
+
+/* Chatbot Modal */
+.chatbot-modal {
+  position: fixed;
+  bottom: 100px;
+  right: 2vw;
+  width: 500px;
+  height: 650px;
+  background: transparent;
+  z-index: 10000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.chatbot-modal.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.chatbot-content {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.chatbot-modal.show .chatbot-content {
+  transform: translateY(0);
+}
+
+.chatbot-header {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.btn-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.chatbot-body {
+  padding: 0;
+  height: 600px;
+}
+
+.chatbot-body iframe {
+  border: none;
+  border-radius: 0 0 12px 12px;
+}
+
+/* إخفاء الشريط الأصفر في أعلى الـ iframe */
+.chatbot-body iframe {
+  margin-top: -50px;
+  height: calc(100% + 50px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .chatbot-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    right: 1.5vw;
+    bottom: 1.5vw;
+  }
+  
+  .chatbot-modal {
+    bottom: 80px;
+    right: 1.5vw;
+    width: 450px;
+    height: 600px;
+  }
+  
+  .chatbot-body {
+    height: 500px;
+  }
+  
+  .chatbot-body iframe {
+    margin-top: -50px;
+    height: calc(100% + 50px);
+  }
+  
+  .chatbot-tooltip {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .chatbot-button {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+  
+  .chatbot-modal {
+    bottom: 70px;
+    right: 1vw;
+    width: 400px;
+    height: 550px;
+  }
+  
+  .chatbot-body {
+    height: 450px;
+  }
+  
+  .chatbot-body iframe {
+    margin-top: -50px;
+    height: calc(100% + 50px);
+  }
+}

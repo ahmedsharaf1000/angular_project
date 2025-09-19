@@ -1,0 +1,23 @@
+<div class="container py-5">
+  <h2 class="text-center mb-4">بحث عن ساعة</h2>
+  <form (ngSubmit)="doSearch()" class="mb-4 d-flex justify-content-center">
+    <input type="text" class="form-control w-50 me-2" [(ngModel)]="searchTerm" name="searchTerm" placeholder="اكتب اسم الساعة..." required>
+    <button type="submit" class="btn btn-primary">بحث</button>
+  </form>
+
+  <div *ngIf="results.length > 0" class="row g-4">
+    <div class="col-md-4" *ngFor="let watch of results">
+      <div class="card h-100 shadow">
+        <img [src]="watch.image" [alt]="watch.name" class="card-img-top" style="height:220px;object-fit:cover;">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ watch.name }}</h5>
+          <p class="card-text">السعر: ${{ watch.price }}</p>
+          <button class="btn btn-success" (click)="buyNow(watch)">شراء الآن</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="results.length === 0 && searchTerm" class="alert alert-warning text-center mt-4">
+    لا يوجد منتجات بهذا الاسم.
+  </div>
+</div>

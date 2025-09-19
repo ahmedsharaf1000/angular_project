@@ -1,0 +1,19 @@
+<div class="container py-5" *ngIf="product">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg">
+        <img [src]="product.image" [alt]="product.name" class="card-img-top" style="height:320px;object-fit:cover;">
+        <div class="card-body">
+          <h3 class="card-title mb-3">{{ product.name }}</h3>
+          <p class="mb-2"><strong>السعر:</strong> ${{ product.price }}</p>
+          <p class="mb-2"><strong>التصنيف:</strong> {{ product.category }}</p>
+          <p class="mb-2"><strong>النوع:</strong> {{ product.type }}</p>
+          <p class="mb-2"><strong>الستايل:</strong> {{ product.style }}</p>
+          <p class="mb-2"><strong>الجنس:</strong> {{ product.gender }}</p>
+          <p class="mb-2"><strong>الكمية المتاحة:</strong> {{ product.quantity }}</p>
+          <button class="btn btn-warning w-100 mt-3" (click)="goBack()">رجوع للمنتجات</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

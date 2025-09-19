@@ -1,0 +1,26 @@
+<!-- Chatbot Button -->
+<div class="chatbot-button" (click)="toggleChatbot()" [class.active]="isOpen">
+  <i class="bi bi-chat-dots-fill"></i>
+  <span class="chatbot-tooltip">شات بوت</span>
+</div>
+
+<!-- Chatbot Modal -->
+<div class="chatbot-modal" [class.show]="isOpen">
+  <div class="chatbot-content">
+    <div class="chatbot-header">
+      <h5 class="mb-0">شات بوت المساعدة</h5>
+      <button class="btn-close" (click)="closeChatbot()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="chatbot-body">
+      <iframe 
+        src="https://my-repository5-gilt.vercel.app/" 
+        width="100%" 
+        height="600" 
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
